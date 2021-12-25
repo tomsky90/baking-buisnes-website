@@ -1,0 +1,819 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 1350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body.noScroll {
+  overflow-y: hidden;
+}
+
+header {
+  position: relative;
+  background-color: #aa5fa4;
+  padding: 30px 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation {
+  display: none;
+}
+
+/*mobile menu*/
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 0px;
+  background-color: #aa5fa4;
+  text-align: center;
+  overflow-x: hidden;
+  z-index: 99;
+  transition: 0.3s 0.1s linear;
+}
+
+.m-nav-active {
+  width: 200px;
+}
+
+.nav-list {
+  margin-top: 50px;
+  list-style: none;
+}
+
+.m-list-element {
+  margin-bottom: 20px;
+}
+
+.m-list-element a {
+  display: block;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  width: 120px;
+  text-transform: capitalize;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 2px dotted white;
+}
+
+.m-list-element:last-child a {
+  border-bottom: none;
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.8);
+  z-index: 1;
+  transition: 0.3s linear;
+}
+
+.blur.active {
+  width: 100%;
+}
+
+/*hamburger menu*/
+
+.hamburger {
+  padding: 10px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  position: absolute;
+  width: 60px;
+  right: 20px;
+  top: 5px;
+  z-index: 99;
+  outline: none;
+  border: none;
+  transition: 0.3s 0.1s linear;
+}
+
+.hamburger-active {
+  transform: translateX(-200px);
+}
+
+.hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transition: background-color 0.3s 0.1s ease-in-out;
+}
+
+.hamburger-inner:before,
+.hamburger-inner:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  transition: 0.3s 0.1s linear;
+}
+
+.hamburger-inner:before {
+  top: -10px;
+}
+
+.hamburger-inner:after {
+  top: 10px;
+}
+
+.hamburger-active .hamburger-inner {
+  background-color: transparent;
+}
+
+.hamburger-active .hamburger-inner:before {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger-active .hamburger-inner:after {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/*logo*/
+
+.logo {
+  display: flex;
+  width: 40px;
+  margin-left: 20px;
+  margin-right: 10px;
+  background-color: #aa5fa4;
+}
+
+.logo-img {
+  width: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.heading-h1 {
+  font-family: "Satisfy", cursive;
+  text-transform: uppercase;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+/*style for welcom*/
+
+.welcom {
+  position: relative;
+}
+
+.welcom .dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.welcom .dots span {
+  display: inline-block;
+  background-color: gray;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.welcom .dots span.active {
+  background-color: #fff;
+}
+
+.welcom img {
+  width: 100%;
+  display: block;
+}
+
+.welcom h1 {
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Satisfy", cursive;
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+/*style for cakes.html*/
+
+.offer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0 30px;
+  position: relative;
+  background-color: #fff;
+}
+
+.offer h1 {
+  line-height: 30px;
+  margin: 0 30px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  font-family: "Satisfy";
+  font-size: 25px;
+  color: #533537;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-top: 20px;
+  position: relative;
+}
+
+.offer h1::after {
+  content: "";
+  width: 100px;
+  height: 3px;
+  background-color: #533537;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.offer p {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 18px;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.recips {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.recip {
+  position: relative;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.recip.last {
+  margin-bottom: 100px;
+}
+
+.recip img {
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.recip h2 {
+  text-transform: uppercase;
+  font-size: 20px;
+  border-bottom: solid black 2px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+.recip p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.read-more {
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  padding: 10px;
+  background-color: #aa5fa4;
+  position: absolute;
+  right: 20px;
+}
+
+/*style for index main*/
+
+.description {
+  margin: auto 0;
+  padding: 100px 0 200px;
+  position: relative;
+  
+}
+
+.description h1 {
+  line-height: 30px;
+  margin: 0 30px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  font-family: "Satisfy";
+  font-size: 25px;
+  color: #533537;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-top: 20px;
+  position: relative;
+}
+
+.description h1::after {
+  content: "";
+  color: #533537;
+  height: 2px;
+  width: 100px;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 2px solid #533537;
+  z-index: 90;
+}
+
+.description p {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 18px;
+  padding: 0 15px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.description .check-our-cakes {
+  display: block;
+  text-decoration: none;
+
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  padding: 10px;
+  background-color: #aa5fa4;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about {
+  margin: auto 0;
+  padding: 30px 0 30px;
+  width: 100%;
+  margin-bottom: 100px;
+  color: #533537;
+  text-align: center;
+}
+
+.about h1 {
+  padding-bottom: 15px;
+  font-family: "Satisfy";
+  width: 90%;
+  display: inline-block;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.about h1::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background-color: #533537;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about p {
+  width: 90%;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.ingridients {
+  background-image: url(img/food-3048440_640.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  position: relative;
+  margin-bottom: 50px
+}
+
+.ingridients h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  text-align: center;
+  font-family: "Satisfy";
+  color: white;
+  line-height: 1.7;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 768px) {
+  .recips {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    padding: 0 15px;
+    position: relative;
+  }
+
+  .recip img {
+    width: 100%;
+    height: 199px;
+  }
+
+  .recip {
+    width: 50%;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+
+  .navigation {
+    display: flex;
+    margin-right: 10%;
+  }
+
+  .logo {
+    margin-left: 10%;
+  }
+
+  .navigation .nav-links {
+    display: inline-flex;
+    list-style: none;
+  }
+
+  .navigation .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 10px;
+    transition: 0.2s linear;
+  }
+
+  .navigation .nav-links a:hover {
+    border-bottom: 2px solid white;
+  }
+
+  .split {
+    width: 100%;
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .about {
+    margin-top: 50px;
+  }
+
+  .about h1 {
+    margin-bottom: 50px;
+  }
+
+  .about p {
+    width: 80%;
+  }
+
+  .welcom img {
+    margin: 0 auto;
+  }
+
+  .welcom h1 {
+    font-size: 50px;
+    top: 40%;
+  }
+  .welcom .dots {
+  bottom: 10%;
+  
+}
+
+  .recips {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    padding: 0 15px;
+    position: relative;
+  }
+
+  .recip img {
+    width: 100%;
+    height: 199px;
+  }
+
+  .recip {
+    width: 33%;
+    padding: 0 10px;
+    margin-top: 30px;
+  }
+
+  .description p {
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+  }
+}
+
+/*form style*/
+.contact {
+  margin-top: 100px;
+  text-align: center;
+  padding-top: 50px;
+  line-height: 1.7;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #533537;
+}
+
+.contact h1 {
+  text-transform: uppercase;
+}
+
+.contact h3 {
+  text-transform: uppercase;
+}
+
+.contact a {
+  display: block;
+  text-decoration: none;
+  color: #533537;
+  padding: 10px 0 10px;
+}
+
+.contact p {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.contact-form {
+  margin-top: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: black;
+  color: white;
+}
+
+.contact-form h2 {
+  font-size: 25px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  font-size: 18px;
+  padding: 10px;
+  resize: none;
+}
+
+#text-area {
+  height: 120px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+  padding: 10px;
+  resize: none;
+}
+
+button {
+  font-size: 16px;
+  color: white;
+  border: 2px solid white;
+  width: 50%;
+  background-color: black;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+
+  background-color: black;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  line-height: 70px;
+  margin: 20px 20px;
+}
+
+.social span {
+  width: 50%;
+  margin: 0 20px;
+}
+
+.socials a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.map img {
+  width: 100%;
+  margin-top: 50px;
+}
+
+@media (min-width: 800px) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .contact-text {
+    width: 50%;
+  }
+
+  .map img {
+    width: 60%;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  form {
+    width: 40%;
+    margin-left: 100px;
+  }
+
+  .contact-form h2 {
+    font-size: 30px;
+  }
+}
+
+/*style for galery.html*/
+.galery {
+  color: #533537;
+  font-family: "Satisfy";
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  padding-top: 100px;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.galery::after {
+  content: "";
+  width: 100px;
+  height: 3px;
+  background-color: #533537;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.images {
+    padding-bottom: 100px;
+}
+
+.images a {
+  display: block;
+}
+
+.img img {
+  margin: 5px auto;
+  display: block;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 700px) {
+  .images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .img {
+    width: 45%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .img {
+    width: 30%;
+    margin-bottom: 10px;
+  }
+}
+
+footer {
+  background-color: #aa5fa4;
+  font-family: "Satisfy";
+  text-align: center;
+  padding: 100px 0 30px;
+  line-height: 1.7;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+footer section {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.footer-links ul a {
+  text-decoration: none;
+  color: black;
+}
+
+footer h3 {
+  font-size: 20px;
+}
+
+footer p {
+  font-size: 18px;
+}
+
+footer .privacy {
+  margin-top: 30px;
+}
+
+@media (min-width: 800px) {
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  footer section {
+    width: 30%;
+  }
+
+  footer .privacy {
+    margin-top: 50px;
+  }
+}
